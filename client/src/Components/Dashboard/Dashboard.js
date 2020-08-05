@@ -15,11 +15,11 @@ function Dashboard() {
       <div className="App">
         <header>
           <AppNavbar />
-          <Container>
-            <AddBookModal />
-            <AppBooksList />
-          </Container>
         </header>
+        <Container>
+          <AddBookModal />
+          <AppBooksList />
+        </Container>
       </div>
     </Provider>
   );

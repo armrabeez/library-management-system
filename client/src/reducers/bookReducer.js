@@ -15,7 +15,7 @@ export default function (state = initialState, action) {
     case GET_BOOKS:
       return {
         ...state,
-        books: payload.data,
+        books: action.payload,
         loading: false,
       };
     case ADD_BOOK:
@@ -26,7 +26,7 @@ export default function (state = initialState, action) {
     case DELETE_BOOK:
       return {
         ...state,
-        books: state.books.filter((book) => book.id !== action.payload),
+        books: state.books.filter((book) => book._id !== action.payload),
       };
     case LOADING_BOOKS:
       return {

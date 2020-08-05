@@ -27,10 +27,20 @@ class AddBookModal extends Component {
     });
   };
 
-  onChange = () => {};
+  onChange = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
 
   onSubmit = (e) => {
     e.preventDefault();
+    const newBook = {
+      title: this.state.title,
+      author: this.state.author,
+      published: this.state.published,
+      genre: this.state.genre,
+    };
+    this.props.addBook(newBook);
+    this.toggle();
   };
 
   render() {
@@ -68,11 +78,11 @@ class AddBookModal extends Component {
                 />
               </FormGroup>
               <FormGroup>
-                <Label for="year">Published Year</Label>
+                <Label for="published">Published Year</Label>
                 <Input
                   type="text"
-                  name="year"
-                  id="year"
+                  name="published"
+                  id="published"
                   placeholder="Add a Published Year"
                   onChange={this.onChange}
                 />

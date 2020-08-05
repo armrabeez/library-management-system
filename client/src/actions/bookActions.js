@@ -11,18 +11,22 @@ export const getBooks = () => (dispatch) => {
   );
 };
 
-export const deleteBook = (id) => {
-  return {
-    type: DELETE_BOOK,
-    payload: id,
-  };
+export const addBook = (book) => (dispatch) => {
+  axios.post("api/books", book).then((res) =>
+    dispatch({
+      type: ADD_BOOK,
+      payload: res.data,
+    })
+  );
 };
 
-export const addBook = (book) => {
-  return {
-    type: ADD_BOOK,
-    payload: book,
-  };
+export const deleteBook = (id) => (dispatch) => {
+  axios.delete(`api/books/${id}`).then((res) =>
+    dispatch({
+      type: DELETE_BOOK,
+      payload: id,
+    })
+  );
 };
 
 export const setLoadingBooks = () => {

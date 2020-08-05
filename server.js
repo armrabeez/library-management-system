@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const books = require("./routes/api/Book");
 
 const db = require("./config/key").mongoURI;
-const port = process.env.PORT || 7677;
+const port = process.env.PORT || 5000;
 
 const app = express();
 
